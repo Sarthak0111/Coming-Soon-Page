@@ -1,0 +1,107 @@
+What is Coming Soon Page?
+
+First, we need to know what is the meaning of Coming soon Page, Coming Soon is a term that means something that is going to take place as scheduled or expected to happen in a near future. hereby, we get to the conclusion that the Coming Soon Page is a type of webpage which is used to promote as well as inform the potential viewers of what's coming next on the page of the site. (For eg: new Smartphones pages that pop up on e-commerce sites. In this article, we will discuss how to create a Coming Soon Page.
+
+Feature of Coming Soon Page:
+
+We have to think as a viewer as to what we want to see on the particular page that we are visiting and how appealing the page appears to us in matters of design and content.
+We should have a complete know-how of what we are presenting to the viewers. (For example:- for an organic food product we will choose the theme of nature and foods.
+When you are creating your Coming Soon page be sure to put Countdown Days. So, the viewers will know that when the product will be launched.
+Be sure to put the WATCH LATER and SHARE link option on-page, so that if the viewers want to watch this page later or share the page with others as they can.
+
+Approach:
+
+First set the background of the web page using image or canvas.
+Set the launching date using Date().
+Update count of every second in var x using setinterval().
+Calculate Days, hours, minutes, and seconds
+Display result
+
+Example:
+
+HTML
+
+<!DOCTYPE HTML>
+<HTML>
+<style>
+    header {
+        background-image: url(
+https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210908212955/Get-Hired-With-GeeksforGeeks-GFG-Job-Portal.png);
+        background-position: center;
+        height: 100vh;
+        background-size: 100% 96%;
+    }
+    
+    .Tech {
+        top: 19%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        color: rgb(20, 158, 212);
+        text-align: center;
+        font-size: 17px;
+    }
+    
+    #Release {
+        color: white;
+        font-size: 40px;
+        word-spacing: 10px;
+    }
+</style>
+
+<head>
+    <link href="style.css" 
+          rel="stylesheet" 
+          type="text/css">
+</head>
+
+<BODY>
+    <header>
+        <div class="Tech">
+            <h2>COMING SOON</h2>
+
+            <p id="Release"></p>
+        </div>
+    </header>
+
+    <script>
+        // Set the date of launching
+        var RemainingTime = new Date("Feb 17, 2022 00:00:00");
+
+        var RemainingTime = RemainingTime.getTime();
+
+        // Update the count down every second
+        var x = setInterval(function() {
+
+            // Get current date and time
+            var now = new Date().getTime();
+            var distance = RemainingTime - now;
+
+            // Days, hours, minutes and seconds time calculations
+            var days_remaining =
+                 Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours_remaining = 
+                 Math.floor(days_remaining / (1000 * 60 * 60));
+            var x1 = distance % (1000 * 60 * 60);
+            var minutes = Math.floor(x1 / (1000 * 60));
+            var x2 = distance % (1000 * 60);
+            var seconds = Math.floor(x2 / 1000);
+
+            // Display the results
+            document.getElementById("Release").innerHTML =
+                days_remaining +
+                " : " + hours_remaining + " : " + minutes +
+                " : " + seconds;
+
+            // Text after count down is over
+            if (distance < 0) {
+                clearinterval(x);
+                document.getElementById("Release").
+                innerHTML = "Welcome";
+            }
+
+        }, 1000);
+    </script>
+</BODY>
+
+</HTML>
